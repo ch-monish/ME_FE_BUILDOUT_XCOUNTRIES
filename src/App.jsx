@@ -8,38 +8,21 @@ import './App.css'
 function App() {
 
   const [countries,setCountries]=useState([])
-  // const apiCall=async ()=>{
-    
-    
-  //   try{
 
-  //     const res= await axios.get('https://xcountries-backend.labs.crio.do/all')
-
-  //      if(res.status===200){
-  //       setCountries(res.data)
-  //     }
-  //     else{
-  //         console.error("api failed")
-  //       return null;
-  //     }
-  //   }
-
-  //   catch(err){
-  //     console.error(err)
-  //   }
-  
-  
-  
-  // }
   useEffect(()=>{
-// apiCall()
 
 const fetchData = async () => {
     try {
       const res = await axios.get('https://xcountries-backend.labs.crio.do/all');
-      setCountries(res.data);
+      if(res.status===200){
+
+        setCountries(res.data);
+      }
+      else{
+        console.log("Error fetching data")
+      }
     } catch (err) {
-      console.error(err);
+      console.error("Error fetching data" +err);
       return null
     }
   };
