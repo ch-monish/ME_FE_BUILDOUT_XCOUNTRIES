@@ -22,7 +22,7 @@ const fetchData = async () => {
         console.log("Error fetching data")
       }
     } catch (err) {
-      console.error("Error fetching data" +err);
+      console.error("Error fetching data:" +err);
       return null
     }
   };
